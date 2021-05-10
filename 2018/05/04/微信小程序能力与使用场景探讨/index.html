@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://v-acoder.github.io').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"Transition variants":null,"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="一，功能1，小程序支持自定义组件，视频直播，模板消息，将web页面用web-view插入小程序，获取用户信息包括手机号…功能很丰富，可查看官方API 2，在小程序内可打开或返回同一公众号下的小程序 3，同一微信开放平台下的不同应用，用户的openid是不一样的，但是unionid是唯一的 4，页面最多有5层，代码包大小2MB 二，兼容微信客户端的每个版本都携带小程序的稳定版基础库，当用户的基础库不">
+<meta name="keywords" content="小程序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信小程序能力与使用场景探讨">
+<meta property="og:url" content="https://v-acoder.github.io/2018/05/04/微信小程序能力与使用场景探讨/index.html">
+<meta property="og:site_name" content="V の Blogs">
+<meta property="og:description" content="一，功能1，小程序支持自定义组件，视频直播，模板消息，将web页面用web-view插入小程序，获取用户信息包括手机号…功能很丰富，可查看官方API 2，在小程序内可打开或返回同一公众号下的小程序 3，同一微信开放平台下的不同应用，用户的openid是不一样的，但是unionid是唯一的 4，页面最多有5层，代码包大小2MB 二，兼容微信客户端的每个版本都携带小程序的稳定版基础库，当用户的基础库不">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-05-07T12:26:34.526Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="微信小程序能力与使用场景探讨">
+<meta name="twitter:description" content="一，功能1，小程序支持自定义组件，视频直播，模板消息，将web页面用web-view插入小程序，获取用户信息包括手机号…功能很丰富，可查看官方API 2，在小程序内可打开或返回同一公众号下的小程序 3，同一微信开放平台下的不同应用，用户的openid是不一样的，但是unionid是唯一的 4，页面最多有5层，代码包大小2MB 二，兼容微信客户端的每个版本都携带小程序的稳定版基础库，当用户的基础库不">
+
+<link rel="canonical" href="https://v-acoder.github.io/2018/05/04/微信小程序能力与使用场景探讨/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>微信小程序能力与使用场景探讨 | V の Blogs</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">V の Blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">a coder's diaries</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://v-acoder.github.io/2018/05/04/微信小程序能力与使用场景探讨/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/45346779.png">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="吾生也有涯，而知也无涯，以有涯随无涯，殆已。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="V の Blogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          微信小程序能力与使用场景探讨
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-05-04 14:20:42" itemprop="dateCreated datePublished" datetime="2018-05-04T14:20:42+08:00">2018-05-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="一，功能"><a href="#一，功能" class="headerlink" title="一，功能"></a>一，功能</h2><p>1，小程序支持自定义组件，视频直播，模板消息，将web页面用web-view插入小程序，获取用户信息包括手机号…功能很丰富，可查看官方API</p>
+<p>2，在小程序内可打开或返回同一公众号下的小程序</p>
+<p>3，同一微信开放平台下的不同应用，用户的openid是不一样的，但是unionid是唯一的</p>
+<p>4，页面最多有5层，代码包大小2MB</p>
+<h2 id="二，兼容"><a href="#二，兼容" class="headerlink" title="二，兼容"></a>二，兼容</h2><p>微信客户端的每个版本都携带小程序的稳定版基础库，当用户的基础库不支持小程序功能时，可在微信公众平台设置最低版本，届时提醒用户更新微信。在开发时可用wx.canIUse判断当前基础库是否支持要加功能</p>
+<h2 id="三，性能与分析"><a href="#三，性能与分析" class="headerlink" title="三，性能与分析"></a>三，性能与分析</h2><p>1，频繁或者大量setData会造成页面卡顿；图片尽量放在服务器上；及时清理没用的代码和资源，缩小代码包。<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/performance/tips.html" target="_blank" rel="noopener">参考文档</a></p>
+<p>2，使用abd工具和微信开发者工具的Trace面板分析小程序性能。<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/performance/tools.html" target="_blank" rel="noopener">参考文档</a>与<a href="https://www.xda-developers.com/install-adb-windows-macos-linux/" target="_blank" rel="noopener">adb安装教程</a></p>
+<p>3，可在微信公众平台自定义分析数据，创建事件和漏斗。经管理员授权后可用小程序数据助手查看分析结果</p>
+<a id="more"></a>
+
+<h2 id="四，那些年，小程序挖的坑"><a href="#四，那些年，小程序挖的坑" class="headerlink" title="四，那些年，小程序挖的坑"></a>四，那些年，小程序挖的坑</h2><p>1，canvas组件是客户端创建的原生组件，层级最高，不能通过z-index控制层级。使用方法与HTML5的canvas有差异。可以使用cover-view覆盖原生组件</p>
+<p>2，自定义组件样式失效，解决办法<a href="https://developers.weixin.qq.com/blogdetail?action=get_post_info&docid=897207ed5ce25f637c5bbed3e6b36816&highline=%E7%BB%84%E4%BB%B6%7C%26%E4%B8%8D%7C%26%E6%A0%B7%E5%BC%8F%7C%26%E6%A0%B7%E5%BC%8F%E4%B8%8D%E7%94%9F%E6%95%88&token=77566935&lang=zh_CN" target="_blank" rel="noopener">参考文档</a></p>
+<p>3，如果样式或数据或跳转链接不对，尝试下清除缓存</p>
+<p>4，iOS或者安卓真机无法获取接口数据，很有可能是SSL证书不受信任</p>
+<p>5，小程序input组件使用百分比宽度显示不全，解决办法<a href="http://www.cnblogs.com/miu-key/p/7168933.html" target="_blank" rel="noopener">参考</a></p>
+<p>6，使用tabbar跳转页面不能带参数</p>
+<p>7，video组件真机上bindplay失效</p>
+<p>8，flex布局需要设置view的宽度</p>
+<p>9，视频退出全屏时显示不完整，解决方法是退出全屏时设置视频的宽度为wx.getSystemInfo的windowWidth</p>
+<p>10，安卓机视频createVideoContext控制play有时失效，seek会倒退十几秒，不知是bug还是feature</p>
+<p>11，onShareAppMessage内不能使用this</p>
+<p>12，cover-view即使position为fixed，只会显示原生组件上的内容</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/小程序/" rel="tag"># 小程序</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/01/15/同源与跨域资源共享/" rel="prev" title="同源与跨域资源共享">
+      <i class="fa fa-chevron-left"></i> 同源与跨域资源共享
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/07/27/钉钉移动端应用填过的那些坑/" rel="next" title="钉钉移动端应用填过的那些坑">
+      钉钉移动端应用填过的那些坑 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一，功能"><span class="nav-number">1.</span> <span class="nav-text">一，功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二，兼容"><span class="nav-number">2.</span> <span class="nav-text">二，兼容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三，性能与分析"><span class="nav-number">3.</span> <span class="nav-text">三，性能与分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四，那些年，小程序挖的坑"><span class="nav-number">4.</span> <span class="nav-text">四，那些年，小程序挖的坑</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt=""
+      src="/images/45346779.png">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description">吾生也有涯，而知也无涯，以有涯随无涯，殆已。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/V-ACODER" title="GitHub → https://github.com/V-ACODER" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:m17346583074@163.com" title="E-Mail → mailto:m17346583074@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.6.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="true"></script>
+  <script size="300" alpha="0.6" zIndex="-1" src="true"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

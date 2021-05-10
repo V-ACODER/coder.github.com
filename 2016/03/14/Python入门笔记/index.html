@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://v-acoder.github.io').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"Transition variants":null,"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="作者：Guido van Rossum/Dutch（吉多·范罗苏姆） 生成时间：1989 特点：优雅、明确、简单、动态语言 适合的领域：Web网站和各种网络服务、系统工具和脚本、包装其他语言开发的模块 不适合的领域：贴近硬件的代码、移动开发、游戏开发 官网：www.python.org  一、数据类型 整数 浮点数 字符串 布尔值 空值None List 字典 自定义数据类型 …  1. 转义字">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python入门笔记">
+<meta property="og:url" content="https://v-acoder.github.io/2016/03/14/Python入门笔记/index.html">
+<meta property="og:site_name" content="V の Blogs">
+<meta property="og:description" content="作者：Guido van Rossum/Dutch（吉多·范罗苏姆） 生成时间：1989 特点：优雅、明确、简单、动态语言 适合的领域：Web网站和各种网络服务、系统工具和脚本、包装其他语言开发的模块 不适合的领域：贴近硬件的代码、移动开发、游戏开发 官网：www.python.org  一、数据类型 整数 浮点数 字符串 布尔值 空值None List 字典 自定义数据类型 …  1. 转义字">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-05-07T12:26:34.526Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python入门笔记">
+<meta name="twitter:description" content="作者：Guido van Rossum/Dutch（吉多·范罗苏姆） 生成时间：1989 特点：优雅、明确、简单、动态语言 适合的领域：Web网站和各种网络服务、系统工具和脚本、包装其他语言开发的模块 不适合的领域：贴近硬件的代码、移动开发、游戏开发 官网：www.python.org  一、数据类型 整数 浮点数 字符串 布尔值 空值None List 字典 自定义数据类型 …  1. 转义字">
+
+<link rel="canonical" href="https://v-acoder.github.io/2016/03/14/Python入门笔记/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>Python入门笔记 | V の Blogs</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">V の Blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">a coder's diaries</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://v-acoder.github.io/2016/03/14/Python入门笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/45346779.png">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="吾生也有涯，而知也无涯，以有涯随无涯，殆已。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="V の Blogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python入门笔记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-03-14 08:10:53" itemprop="dateCreated datePublished" datetime="2016-03-14T08:10:53+08:00">2016-03-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/服务端/" itemprop="url" rel="index">
+                    <span itemprop="name">服务端</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <ul>
+<li>作者：Guido van Rossum/Dutch（吉多·范罗苏姆）</li>
+<li>生成时间：1989</li>
+<li>特点：优雅、明确、简单、动态语言</li>
+<li>适合的领域：Web网站和各种网络服务、系统工具和脚本、包装其他语言开发的模块</li>
+<li>不适合的领域：贴近硬件的代码、移动开发、游戏开发</li>
+<li>官网：<a href="http://www.python.org" target="_blank" rel="noopener">www.python.org</a></li>
+</ul>
+<h3 id="一、数据类型"><a href="#一、数据类型" class="headerlink" title="一、数据类型"></a>一、数据类型</h3><ul>
+<li>整数</li>
+<li>浮点数</li>
+<li>字符串</li>
+<li>布尔值</li>
+<li>空值None</li>
+<li>List</li>
+<li>字典</li>
+<li>自定义数据类型</li>
+<li>…</li>
+</ul>
+<h4 id="1-转义字符"><a href="#1-转义字符" class="headerlink" title="1. 转义字符\"></a>1. 转义字符\</h4><p>常用的转义字符有：</p>
+<ul>
+<li>\n 表示换行</li>
+<li>\t 表示一个制表符</li>
+<li>\ 表示 \ 字符本身</li>
+</ul>
+<h4 id="2-字符表示"><a href="#2-字符表示" class="headerlink" title="2. 字符表示"></a>2. 字符表示</h4><ul>
+<li>r，表示这是一个raw字符串,里面的字符不需要转义</li>
+<li>u, Unicode</li>
+<li>A-65</li>
+<li>a-97</li>
+<li>‘’xxx’’’表示多行字符串</li>
+</ul>
+<h4 id="3-整数和浮点数"><a href="#3-整数和浮点数" class="headerlink" title="3. 整数和浮点数"></a>3. 整数和浮点数</h4><ul>
+<li>Python的整数运算结果仍然是整数，浮点数运算结果仍然是浮点数，整数除法，即使除不尽，结果仍然是整数，余数直接被扔掉。</li>
+<li>运算 % 可以计算余数：</li>
+</ul>
+<h4 id="4-布尔值"><a href="#4-布尔值" class="headerlink" title="4. 布尔值"></a>4. 布尔值</h4><ul>
+<li>0、空字符串’’和None看成 False，其他数值和非空字符串都看成 True</li>
+</ul>
+<h4 id="5-List"><a href="#5-List" class="headerlink" title="5. List"></a>5. List</h4><ul>
+<li>List是有序列表，负数是倒序</li>
+<li>append()在尾部添加</li>
+<li>insert(index, element)</li>
+<li>pop(index)默认删除最有一个元素并作为返回值</li>
+</ul>
+<h4 id="6-tuple-元组"><a href="#6-tuple-元组" class="headerlink" title="6.tuple (元组)"></a>6.tuple (元组)</h4><ul>
+<li>是另一种有序的列表，一旦创建完毕，指针的指向不会变</li>
+<li>使用（ ）创建</li>
+<li>单元素要加”,”</li>
+</ul>
+<h4 id="7-dict"><a href="#7-dict" class="headerlink" title="7. dict"></a>7. dict</h4><ul>
+<li>len() 函数可以计算任意集合的大小</li>
+<li>内部是无序的</li>
+<li>作为 key 的元素必须不可变</li>
+</ul>
+<h4 id="8-set"><a href="#8-set" class="headerlink" title="8. set"></a>8. set</h4><ul>
+<li>内部存储的元素是无序的</li>
+<li>不能包含重复的元素</li>
+<li>用 in 操作符判断是否存在某元素</li>
+<li>add()添加，remove()删除，用add()可以直接添加，而remove()前需要判断</li>
+</ul>
+<h3 id="二、函数"><a href="#二、函数" class="headerlink" title="二、函数"></a>二、函数</h3><ul>
+<li>内置函数：<a href="https://docs.python.org/2/library/functions.html" target="_blank" rel="noopener">https://docs.python.org/2/library/functions.html</a></li>
+<li>定义一个函数要使用 def 语句</li>
+<li>int()函数的第二个参数是转换进制，如果不传，默认是十进制</li>
+<li>可变参数的名字前面有个 * 号，我们可以传入0个、1个或多个参数给可变参数</li>
+<li>list 和 tuple的slice()方法：L[start index: last index + 1: range]</li>
+<li>enumerate()把list变成[tuple], items()把dict变成[tuple]</li>
+<li>zip()函数可以把两个 list 变成一个 list</li>
+<li>itervalues(), iteritems(),在迭代过程中不断给出tuple</li>
+<li>列表生成式[]、range()函数可以创建list</li>
+</ul>
+<a id="more"></a>
+
+
+<h4 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h4><ul>
+<li>window安装要添加path路径</li>
+<li>NotePad++，设置编码utf-8</li>
+<li>首行不能空格，后缀名py</li>
+<li>退出窗口exit()</li>
+<li>print用逗号隔开字符，有一个空格</li>
+<li>变量名必须是大小写英文、数字和下划线（_）的组合，且不能用数字开头</li>
+<li>python语言没有结束符‘；’，判断句没有括号使用”:”</li>
+<li>缩进四格，退出缩进需要多敲一行回车：</li>
+</ul>
+<h4 id="关于汉字编码，似乎不加u也可以？？"><a href="#关于汉字编码，似乎不加u也可以？？" class="headerlink" title="关于汉字编码，似乎不加u也可以？？"></a>关于汉字编码，似乎不加u也可以？？</h4><p>Unicode把所有语言都统一到一套编码<br>如果中文字符串在Python环境下遇到 UnicodeDecodeError，这是因为.py文件保存的格式有问题。可以在第一行添加注释</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-</span><br></pre></td></tr></table></figure>
+
+<p>然后用Notepad++ 另存为… 并选择UTF-8格式保存。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"># Python</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2017/10/24/服务器部署与发布/" rel="next" title="服务器部署与发布">
+      服务器部署与发布 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、数据类型"><span class="nav-number">1.</span> <span class="nav-text">一、数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-转义字符"><span class="nav-number">1.1.</span> <span class="nav-text">1. 转义字符\</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-字符表示"><span class="nav-number">1.2.</span> <span class="nav-text">2. 字符表示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-整数和浮点数"><span class="nav-number">1.3.</span> <span class="nav-text">3. 整数和浮点数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-布尔值"><span class="nav-number">1.4.</span> <span class="nav-text">4. 布尔值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-List"><span class="nav-number">1.5.</span> <span class="nav-text">5. List</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-tuple-元组"><span class="nav-number">1.6.</span> <span class="nav-text">6.tuple (元组)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-dict"><span class="nav-number">1.7.</span> <span class="nav-text">7. dict</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-set"><span class="nav-number">1.8.</span> <span class="nav-text">8. set</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、函数"><span class="nav-number">2.</span> <span class="nav-text">二、函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注意："><span class="nav-number">2.1.</span> <span class="nav-text">注意：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于汉字编码，似乎不加u也可以？？"><span class="nav-number">2.2.</span> <span class="nav-text">关于汉字编码，似乎不加u也可以？？</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt=""
+      src="/images/45346779.png">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description">吾生也有涯，而知也无涯，以有涯随无涯，殆已。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/V-ACODER" title="GitHub → https://github.com/V-ACODER" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:m17346583074@163.com" title="E-Mail → mailto:m17346583074@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.6.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="true"></script>
+  <script size="300" alpha="0.6" zIndex="-1" src="true"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

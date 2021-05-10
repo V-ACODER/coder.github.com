@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://v-acoder.github.io').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"Transition variants":null,"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="吾生也有涯，而知也无涯，以有涯随无涯，殆已。">
+<meta name="keywords" content="前端">
+<meta property="og:type" content="website">
+<meta property="og:title" content="V の Blogs">
+<meta property="og:url" content="https://v-acoder.github.io/page/4/index.html">
+<meta property="og:site_name" content="V の Blogs">
+<meta property="og:description" content="吾生也有涯，而知也无涯，以有涯随无涯，殆已。">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="V の Blogs">
+<meta name="twitter:description" content="吾生也有涯，而知也无涯，以有涯随无涯，殆已。">
+
+<link rel="canonical" href="https://v-acoder.github.io/page/4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: true,
+    isPost: false
+  };
+</script>
+
+  <title>V の Blogs</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">V の Blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">a coder's diaries</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://v-acoder.github.io/2018/05/04/微信小程序能力与使用场景探讨/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/45346779.png">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="吾生也有涯，而知也无涯，以有涯随无涯，殆已。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="V の Blogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/05/04/微信小程序能力与使用场景探讨/" class="post-title-link" itemprop="url">微信小程序能力与使用场景探讨</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-05-04 14:20:42" itemprop="dateCreated datePublished" datetime="2018-05-04T14:20:42+08:00">2018-05-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="一，功能"><a href="#一，功能" class="headerlink" title="一，功能"></a>一，功能</h2><p>1，小程序支持自定义组件，视频直播，模板消息，将web页面用web-view插入小程序，获取用户信息包括手机号…功能很丰富，可查看官方API</p>
+<p>2，在小程序内可打开或返回同一公众号下的小程序</p>
+<p>3，同一微信开放平台下的不同应用，用户的openid是不一样的，但是unionid是唯一的</p>
+<p>4，页面最多有5层，代码包大小2MB</p>
+<h2 id="二，兼容"><a href="#二，兼容" class="headerlink" title="二，兼容"></a>二，兼容</h2><p>微信客户端的每个版本都携带小程序的稳定版基础库，当用户的基础库不支持小程序功能时，可在微信公众平台设置最低版本，届时提醒用户更新微信。在开发时可用wx.canIUse判断当前基础库是否支持要加功能</p>
+<h2 id="三，性能与分析"><a href="#三，性能与分析" class="headerlink" title="三，性能与分析"></a>三，性能与分析</h2><p>1，频繁或者大量setData会造成页面卡顿；图片尽量放在服务器上；及时清理没用的代码和资源，缩小代码包。<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/performance/tips.html" target="_blank" rel="noopener">参考文档</a></p>
+<p>2，使用abd工具和微信开发者工具的Trace面板分析小程序性能。<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/performance/tools.html" target="_blank" rel="noopener">参考文档</a>与<a href="https://www.xda-developers.com/install-adb-windows-macos-linux/" target="_blank" rel="noopener">adb安装教程</a></p>
+<p>3，可在微信公众平台自定义分析数据，创建事件和漏斗。经管理员授权后可用小程序数据助手查看分析结果</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/05/04/微信小程序能力与使用场景探讨/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://v-acoder.github.io/2018/01/15/同源与跨域资源共享/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/45346779.png">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="吾生也有涯，而知也无涯，以有涯随无涯，殆已。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="V の Blogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/01/15/同源与跨域资源共享/" class="post-title-link" itemprop="url">同源与跨域资源共享</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-01-15 12:12:10" itemprop="dateCreated datePublished" datetime="2018-01-15T12:12:10+08:00">2018-01-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/通信/" itemprop="url" rel="index">
+                    <span itemprop="name">通信</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>同源策略限制从一个源加载的文档或脚本如何与来自另一个源的资源进行交互。这是一个用于隔离潜在恶意文件的关键的安全机制。</p>
+</blockquote>
+<h5 id="同源是指"><a href="#同源是指" class="headerlink" title="同源是指"></a>同源是指</h5><ul>
+<li>协议相同</li>
+<li>域名相同</li>
+<li>端口相同</li>
+</ul>
+<h5 id="限制范围"><a href="#限制范围" class="headerlink" title="限制范围"></a>限制范围</h5><ul>
+<li>Cookie、LocalStorage 和 IndexDB 无法读取。</li>
+<li>DOM 无法获得。</li>
+<li>AJAX 请求不能发送。</li>
+</ul>
+<h5 id="一级域名相同，二级域名不同时共享Cookie"><a href="#一级域名相同，二级域名不同时共享Cookie" class="headerlink" title="一级域名相同，二级域名不同时共享Cookie"></a>一级域名相同，二级域名不同时共享Cookie</h5><ol>
+<li>设置相同的document.domain</li>
+<li>服务器也可以在设置Cookie的时候，指定Cookie的所属域名为一级域名</li>
+</ol>
+<h5 id="解决跨域问题"><a href="#解决跨域问题" class="headerlink" title="解决跨域问题"></a>解决跨域问题</h5><ol>
+<li>片段识别符</li>
+</ol>
+<p>把信息加在URL的#后面，子窗口监听haschange事件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">window.onhaschange = () =&gt; &#123;</span><br><span class="line">  let message = window.location.hash;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>子窗口改变父窗口片段识别符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parent.location.href = target + &quot;#&quot; + hash</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>将信息写入子窗口的window.name中</p>
+</li>
+<li><p>HTML5的window.postMessage</p>
+</li>
+</ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/01/15/同源与跨域资源共享/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://v-acoder.github.io/2018/01/13/HTTP缓存/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/45346779.png">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="吾生也有涯，而知也无涯，以有涯随无涯，殆已。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="V の Blogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/01/13/HTTP缓存/" class="post-title-link" itemprop="url">HTTP缓存</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-01-13 14:20:30" itemprop="dateCreated datePublished" datetime="2018-01-13T14:20:30+08:00">2018-01-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/通信/" itemprop="url" rel="index">
+                    <span itemprop="name">通信</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>常见的http缓存只能缓存get请求响应的资源，根据是否需要重新向服务器发起请求来分类，可分为强缓存和协商缓存。</p>
+</blockquote>
+<p><img src="/images/http/z.jpg" alt="总图"></p>
+<h4 id="1-强缓存"><a href="#1-强缓存" class="headerlink" title="1. 强缓存"></a>1. 强缓存</h4><p>如果Cache-Control的max-age没有过期或者Expires的缓存时间没有过期，就直接使用浏览器的缓存数据<br><img src="/images/http/q.jpg" alt="强缓存"></p>
+<h4 id="2-协商缓存"><a href="#2-协商缓存" class="headerlink" title="2. 协商缓存"></a>2. 协商缓存</h4><p>如果不用强缓存，浏览器第二次请求时就会与服务器进行协商，如果服务器端的资源没有修改，那么就会返回304状态码<br><img src="/images/http/x.jpg" alt="协商缓存"></p>
+<hr>
+<p>参考链接：<br><a href="https://www.jianshu.com/p/227cee9c8d15" target="_blank" rel="noopener">一文读懂http缓存（超详细）</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://v-acoder.github.io/2018/01/10/HTTP协议各版本的对比变化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/45346779.png">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="吾生也有涯，而知也无涯，以有涯随无涯，殆已。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="V の Blogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/01/10/HTTP协议各版本的对比变化/" class="post-title-link" itemprop="url">HTTP协议各版本的对比变化</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-01-10 10:20:40" itemprop="dateCreated datePublished" datetime="2018-01-10T10:20:40+08:00">2018-01-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/通信/" itemprop="url" rel="index">
+                    <span itemprop="name">通信</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>HTTP是基于TCP/IP协议的应用层协议。它不涉及数据包（packet）传输，主要规定了客户端和服务器之间的通信格式，默认使用80端口。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>出版时间</th>
+<th>方法</th>
+<th>响应内容</th>
+<th>新增功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HTTP/0.9</td>
+<td>1991</td>
+<td>GET</td>
+<td>字符串</td>
+<td>服务器只能回应HTML格式的字符串，发送完毕，就关闭TCP连接</td>
+</tr>
+<tr>
+<td>HTTP/1.0</td>
+<td>1996.05</td>
+<td>+ POST、HEAD</td>
+<td>+ 图像、视频、二进制文件</td>
+<td>状态码（status code）、多字符集支持、多部分发送（multi-part type）、权限（authorization）、缓存（cache）、内容编码（content encoding）</td>
+</tr>
+<tr>
+<td>HTTP/1.1</td>
+<td>1997.01</td>
+<td>+ PUT、PATCH、HEAD、 OPTIONS、DELETE</td>
+<td>+ 头部Host</td>
+<td>+ 持久连接（persistent connection、管道机制（pipelining）</td>
+</tr>
+<tr>
+<td>HTTP/2</td>
+<td>2015</td>
+<td>+</td>
+<td>头信息和数据体都是二进制</td>
+<td>双向的、实时的多工（Multiplexing）通信、头信息压缩、服务器推送（server push）</td>
+</tr>
+</tbody></table>
+<p>注释：</p>
+<ul>
+<li>+号表示包含上个版本的内容</li>
+<li>1.0版本非标准声明Connection: keep-alive支持持久连接，1.1版本不用声明，关闭连接时发送Connection: close</li>
+<li>对于同一个域名，大多数浏览器允许同时建立6个持久连接</li>
+<li>管道机制，即在同一个TCP连接里面，客户端可以同时发送多个请求</li>
+<li>HTTP/2只有在 HTTPS 环境才会生效</li>
+<li>HTTPS在HTTP的基础下加入SSL层</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/01/10/HTTP协议各版本的对比变化/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://v-acoder.github.io/2017/10/24/网络安全与加密/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/45346779.png">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="吾生也有涯，而知也无涯，以有涯随无涯，殆已。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="V の Blogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/10/24/网络安全与加密/" class="post-title-link" itemprop="url">网络安全与加密</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-10-24 16:08:13" itemprop="dateCreated datePublished" datetime="2017-10-24T16:08:13+08:00">2017-10-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/服务端/" itemprop="url" rel="index">
+                    <span itemprop="name">服务端</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="网络安全"><a href="#网络安全" class="headerlink" title="网络安全"></a>网络安全</h2><p><img src="/images/network.png" alt="network"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/10/24/网络安全与加密/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+  </div>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt=""
+      src="/images/45346779.png">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description">吾生也有涯，而知也无涯，以有涯随无涯，殆已。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/V-ACODER" title="GitHub → https://github.com/V-ACODER" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:m17346583074@163.com" title="E-Mail → mailto:m17346583074@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.6.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="true"></script>
+  <script size="300" alpha="0.6" zIndex="-1" src="true"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
